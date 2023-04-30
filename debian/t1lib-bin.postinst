@@ -1,0 +1,8 @@
+#!/bin/sh
+set -e
+
+if [ ! -f /etc/t1lib/t1lib.config ]; then
+    /usr/sbin/t1libconfig --non-interactive
+fi
+
+#DEBHELPER#

@@ -1,0 +1,22 @@
+#!/usr/bin/make -f
+
+include /usr/share/cdbs/1/rules/debhelper.mk
+include /usr/share/cdbs/1/class/autotools.mk
+include /usr/share/cdbs/1/rules/patchsys-quilt.mk
+
+export LDFLAGS := -Wl,--as-needed
+
+DEB_MAKE_BUILD_TARGET   := without_doc
+DEB_MAKE_INSTALL_TARGET := install prefix=$(CURDIR)/debian/tmp/usr
+DEB_INSTALL_DOCS_ALL    += debian/README.Debian
+
+binary-post-install/libt1-5 ::
+	rm -rf debian/libt1-5-dbg/usr/lib/debug/usr/bin/
+binary-post-install/libt1-5-dbg ::
+	rm -rf debian/libt1-5-dbg/usr/lib/debug/usr/bin/
+binary-post-install/libt1-dev ::
+	rm -rf debian/libt1-5-dbg/usr/lib/debug/usr/bin/
+binary-post-install/libt1-doc ::
+	rm -rf debian/libt1-5-dbg/usr/lib/debug/usr/bin/
+binary-post-install/t1lib-bin ::
+	rm -rf debian/libt1-5-dbg/usr/lib/debug/usr/bin/

@@ -1,0 +1,9 @@
+t1lib (5.0.0-3) unstable; urgency=low
+
+  This version of t1lib package is binary incompatible with the previous
+  one in Debian. Details about changes are documented in following files
+  in /usr/share/doc/libt1-dev directory:
+   - changelog.gz
+   - README.t1lib-5.0.0.gz
+
+ -- Artur R. Czechowski <arturcz@hell.pl>  Sun, 18 Jan 2004 00:02:29 +0100

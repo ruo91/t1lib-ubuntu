@@ -1,0 +1,2 @@
+debian/t1libconfig usr/sbin
+debian/tmp/usr/bin/*

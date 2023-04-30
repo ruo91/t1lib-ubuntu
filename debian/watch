@@ -1,0 +1,3 @@
+version=3
+ftp://sunsite.unc.edu/pub/Linux/libs/graphics/t1lib-(.*)\.tar\.gz \
+  debian debian/orig-tar.sh

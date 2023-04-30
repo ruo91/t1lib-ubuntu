@@ -1,0 +1,84 @@
+Source: t1lib
+Section: libs
+Priority: optional
+Maintainer: Ruben Molina <rmolina@udea.edu.co>
+Build-Depends: cdbs, debhelper (>= 7), autotools-dev, libice-dev, libsm-dev, libx11-dev, libxext-dev, libxaw7-dev, quilt
+Standards-Version: 3.8.0
+Homepage: ftp://sunsite.unc.edu/pub/Linux/libs/graphics/
+
+Package: libt1-5
+Section: libs
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: Type 1 font rasterizer library - runtime
+ T1lib is an enhanced rasterizer for Type 1 fonts.
+ .
+ T1lib is based on the X11R5 font rasterizer code, but operates independently
+ of X11.  It includes many enhancements, including underlining, antialiasing,
+ user-defined slant and extension factors, and rotation.
+ .
+ This package contains the shared libraries needed to run programs using T1lib.
+
+Package: libt1-dev
+Section: libdevel
+Architecture: any
+Depends: libt1-5 (= ${binary:Version}), libice-dev, libsm-dev, libx11-dev,
+ libxext-dev, libxaw7-dev
+Recommends: libt1-doc
+Conflicts: t1lib-dev, t1lib1-dev
+Description: Type 1 font rasterizer library - development
+ T1lib is an enhanced rasterizer for Type 1 fonts.
+ .
+ T1lib is based on the X11R5 font rasterizer code, but operates independently
+ of X11.  It includes many enhancements, including underlining, antialiasing,
+ user-defined slant and extension factors, and rotation.
+ .
+ This package contains the header files and static libraries needed to
+ develop programs using T1lib.
+ .
+ Please note, that PDF documentation is placed in libt1-doc
+
+Package: t1lib-bin
+Architecture: any
+Section: misc
+Depends: ${shlibs:Depends}
+Provides: t1lib1-bin
+Replaces: t1lib1-bin
+Conflicts: t1lib1-bin
+Description: Type 1 font rasterizer library - user binaries
+ T1lib is an enhanced rasterizer for Type 1 fonts.
+ .
+ T1lib is based on the X11R5 font rasterizer code, but operates independently
+ of X11.  It includes many enhancements, including underlining, antialiasing,
+ user-defined slant and extension factors, and rotation.
+ .
+ This package contains the programs "xglyph" and "type1afm", included in the
+ upstream T1lib distribution.  It also contains the "t1libconfig"
+ script used to configure t1lib.
+
+Package: libt1-doc
+Architecture: all
+Section: doc
+Description: Type 1 font rasterizer library - developers documentation
+ T1lib is an enhanced rasterizer for Type 1 fonts.
+ .
+ T1lib is based on the X11R5 font rasterizer code, but operates independently
+ of X11.  It includes many enhancements, including underlining, antialiasing,
+ user-defined slant and extension factors, and rotation.
+ .
+ This package contains developers documentation.
+
+Package: libt1-5-dbg
+Section: libdevel
+Priority: extra
+Architecture: any
+Depends: libt1-5 (= ${binary:Version}), ${shlibs:Depends}, ${misc:Depends}
+Description: Type 1 font rasterizer library - debugging runtime
+ T1lib is an enhanced rasterizer for Type 1 fonts.
+ .
+ T1lib is based on the X11R5 font rasterizer code, but operates independently
+ of X11.  It includes many enhancements, including underlining, antialiasing,
+ user-defined slant and extension factors, and rotation.
+ .
+ This package contains debugging information.
+

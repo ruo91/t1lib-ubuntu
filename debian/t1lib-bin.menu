@@ -1,0 +1,2 @@
+?package(t1lib-bin): needs="X11" section="Applications/Viewers" \
+  title="XGlyph" command="/usr/bin/xglyph"

@@ -1,0 +1,34 @@
+.TH TYPE1AFM 1
+.SH NAME
+.B type1afm
+\- create a font metrics file from a Type 1 font file
+.SH SYNOPSIS
+.B type1afm
+[
+.BR \-l
+]
+.B fontfile
+[
+.B fontfile...
+]
+.SH DESCRIPTION
+This manual page was written for the Debian GNU/Linux distribution
+because the original program does not have a manual page.
+.PP
+.B type1afm
+reads in Type 1 font files specified on the command line, rasterizes
+them to 1000bp, and writes AFM (font metrics) files based on the
+observed metrics information.
+.PP
+The AFM file is created in the same directory as the font file, so be
+sure that you have write access there before running this program.
+.SH OPTIONS
+.TP
+.BR \-l
+Write a log file
+.SH SEE ALSO
+.BR getafm (1)
+.SH AUTHOR
+This manual page was David Huggins-Daines <dhd@debian.org>
+for the Debian GNU/Linux distribution (but may be used by others)
+

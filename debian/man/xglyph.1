@@ -1,0 +1,111 @@
+.TH XGLYPH 1
+.SH NAME
+xglyph \- demonstration program for the t1lib font rasterizer library.
+.SH SYNOPSIS
+.B xglyph
+[
+.B fontfile...
+]
+.SH "DESCRIPTION"
+This manual page documents briefly the
+.BR xglyph
+program.
+This manual page was written for the Debian GNU/Linux distribution
+because the original program does not have a manual page.
+.PP
+.B xglyph
+is a program which demonstrates the capabilities of the
+.B t1lib
+library.  It allows the user to view an arbitrary character or string
+rendered in the various ways pgossible with the library.  By default,
+it writes a log file named \fIt1lib.log\fR in the current directory.
+.PP
+If invoked with no arguments, it will attempt to read the global
+configuration file and font database.  It will also accept any number
+of filenames on the command line, in which case these are treated as
+font files to be loaded instead of the default font database.
+.SH "OPTIONS"
+.TP
+.BR \-\-help
+Shows a brief help text
+.TP
+.BR \-\-Help
+Shows a description of all options
+.TP
+.BR \-\-noGrid 
+Don't draw grid lines when displaying glyphs
+.TP
+.BR \-\-setPad 
+Set bitmap padding
+.TP
+.BR \-\-logError
+Log errors only
+.TP
+.BR \-\-logWarning
+Log errors and warnings
+.TP
+.BR \-\-logStatistic
+Log errors, warnings, and statistics
+.TP
+.BR \-\-logDebug
+Log just about everything
+.TP
+.BR \-\-ignoreForceBold
+Don't make pseudo-boldface glyphs
+.TP
+.BR \-\-ignoreFamilyAlignment
+.TP
+.BR \-\-ignoreHinting
+Ignore hints when scaling glyphs
+.TP
+.BR \-\-debugLine
+Show debugging info for line-drawing
+operations in the rasterizer
+.TP
+.BR \-\-debugRegion
+Show debugging info for region operations in
+the rasterizer
+.TP
+.BR \-\-debugPath
+Show debugging info for path operations in the
+rasterizer
+.TP
+.BR \-\-debugFont
+.TP
+.BR \-\-debugHint
+Show debugging info for hinting in the rasterizer.
+.TP
+.BR \-\-checkPerformance
+Do some simple performance tests while rasterizing.
+.TP
+.BR \-\-checkCopyFont
+Check that copying fonts works.
+.TP
+.BR \-\-checkConcatGlyphs
+Check that concatenating glyphs works.
+.TP
+.BR \-\-checkBadCharHandling
+.TP
+.BR \-\-checkDefaultEncoding
+Set a default encoding vector.
+.SH "ENVIRONMENT"
+In the Debian GNU/Linux version of this program, the environment
+variable
+.B T1LIB_CONFIG,
+if set, points to an alternate configuration
+file with which to initialize the library.
+.SH "SEE ALSO"
+.BR FontDataBase (5),
+.BR t1libconfig (8).
+.PP
+.B xglyph
+is much more fully documented in the LaTeX documentation that
+accompanies the upstream
+.B t1lib
+distribution.  This documentation is installed in PostScript and source
+formats with the t1lib-dev package in /usr/share/doc/t1lib-dev, and is
+also accessible through the dwww system.
+.SH AUTHOR
+This manual page was written by David Huggins-Daines
+<dhd@debian.org>, for the Debian GNU/Linux system (but may
+be used by others).

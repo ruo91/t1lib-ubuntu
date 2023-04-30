@@ -1,0 +1,470 @@
+t1lib (5.1.2-3.6ubuntu1) trusty; urgency=medium
+
+  * Patch configure and aclocal.m4 to support ppc64el.
+
+ -- Matthias Klose <doko@ubuntu.com>  Sun, 29 Dec 2013 14:02:11 +0100
+
+t1lib (5.1.2-3.6) unstable; urgency=low
+
+  * Non-maintainer upload to fix RC bug
+  * Fix config script so that it acts as non-interactive when called from the
+    postinst script (Closes: #700820)
+
+ -- Margarita Manterola <marga@debian.org>  Thu, 21 Feb 2013 18:34:32 +0000
+
+t1lib (5.1.2-3.5) unstable; urgency=high
+
+  * Non-maintainer upload by the Security Team.
+  * Thanks Jamie Strandboge from Ubuntu for the patch.
+  * debian/patches:
+    - series: make sure CVE-2010-2642.patch is really applied so CVE-2010-2642
+      (denial of service via oversized fonts) is really fixed.
+    - CVE-2011-1552_1553_1554 added, few more fixes for CVE-2011-1552, 
+      CVE-2011-1553 and CVE-2011-1554 (heap-based buffer overflow via AFM font
+      parser)
+
+ -- Yves-Alexis Perez <corsac@debian.org>  Wed, 18 Jan 2012 10:43:23 +0100
+
+t1lib (5.1.2-3.4) unstable; urgency=high
+
+  * Non-maintainer upload by the Security Team.
+  * debian/patches:
+    - CVE-2010-2642 added, fix heap-based buffer overflow first found in
+      evince but applicable to the embedded afmparse library found in t1lib
+      too. Fixes CVE-2011-0433 too on the same patch.
+
+ -- Yves-Alexis Perez <corsac@debian.org>  Sun, 15 Jan 2012 13:47:26 +0100
+
+t1lib (5.1.2-3.3) unstable; urgency=low
+
+  * Non-maintainer upload.
+  * Fix arbitrary code execution CVE-2011-0764 by only using ppoints when
+    it is a valid pointer (Closes: #652996).
+  * Don't ship .la file anymore (Closes: #633247).
+
+ -- Luk Claes <luk@debian.org>  Thu, 29 Dec 2011 23:21:33 +0100
+
+t1lib (5.1.2-3.2) unstable; urgency=low
+
+  * Non-maintainer upload. (version 5.1.2-3.2 triggered a problem with dak)
+  * format-security.diff: use relevant "%s" format when passing a 
+    variable string to a printf() function and replace printf() 
+    with puts() for the model-only IfTrace0 macro. Thanks to Colin Watson
+    and Loïc Minier! (Closes: #646470) 
+
+ -- Mònica Ramírez Arceda <monica@probeta.net>  Sat, 03 Dec 2011 21:28:31 +0100
+
+t1lib (5.1.2-3) unstable; urgency=low
+
+  * New Maintainer (Closes: #430611) 
+  * Solved some hyphen-used-as-minus-sign in FontDatabase.5
+  * Reformated debian/copyrigth
+  * Added symbols control file 
+
+ -- Ruben Molina <rmolina@udea.edu.co>  Wed, 23 Jul 2008 20:24:22 -0500
+
+t1lib (5.1.2-2) unstable; urgency=low
+
+  * Add a package with debugging information.
+
+ -- Torsten Werner <twerner@debian.org>  Sat, 08 Mar 2008 10:21:43 +0100
+
+t1lib (5.1.2-1) unstable; urgency=low
+
+  * new upstream release
+  * Correct debian/watch.
+  * Remove patch cve-2007-4033.diff because it has been integrated upstream.
+  * Remove parts of patch segfault.diff that have been integrated upstream.
+  * Do not apply the remaining segfault.diff because it does not look safe but
+    keep the patch as a reminder that something was broken in the past.
+
+ -- Torsten Werner <twerner@debian.org>  Sat, 08 Mar 2008 10:07:54 +0100
+
+t1lib (5.1.1-5) unstable; urgency=low
+
+  * Replace Build-Depends-Indep by Build-Depends again.
+
+ -- Torsten Werner <twerner@debian.org>  Tue, 08 Jan 2008 21:34:25 +0100
+
+t1lib (5.1.1-4) unstable; urgency=low
+
+  * Add Build-Depends-Indep: libxt-dev. (Closes: #459754)
+
+ -- Torsten Werner <twerner@debian.org>  Tue, 08 Jan 2008 20:29:01 +0100
+
+t1lib (5.1.1-3) unstable; urgency=low
+
+  * Replace static changes of upstream files by quilt patches as requested by
+    Fedora developers.
+  * Remove postinst that removed the old /usr/doc symlink.
+  * Remove preinst that removed the old /usr/share/doc/t1lib-bin symlink.
+  * Rename menu.t1lib-bin to t1lib-bin.menu to make sure the menu file gets
+    installed.
+  * Update menu file to conform to current menu policy.
+  * Install documentation with dh_installdocs instead of dh_install and some
+    other minor cleanups.
+  * Switch to cdbs.
+  * Fix versioned Build-Depends: debhelper (>= 5).
+  * Move some Build-Depends to Build-Depends-Indep.
+  * Apply two patches provided by Patrice Dumas:
+    - Update t1libconfig's font search.
+    - Fixes a segfault.
+  * Integrate another patch that fixes a segfault. (Closes: #313236)
+
+ -- Torsten Werner <twerner@debian.org>  Sun, 06 Jan 2008 20:50:19 +0100
+
+t1lib (5.1.1-2) unstable; urgency=low
+
+  * Add Depends: libxaw7-dev to -dev package.
+  * Switch to DH_COMPAT = 5.
+  * Update Vcs headers in debian/control.
+  * Change Standards-Version: 3.7.3.
+  * Do not link with unneeded libraries.
+  * Add LDFLAGS=-Wl,--as-needed.
+
+ -- Torsten Werner <twerner@debian.org>  Fri, 21 Dec 2007 22:54:43 +0100
+
+t1lib (5.1.1-1) unstable; urgency=low
+
+  * new upstream version (Closes: #418664)
+  * Add XS-Vcs-* header to debian/control.
+  * Update Standards-Version to 3.7.2 (no changes).
+  * Remove Depends: libc6-dev. (Closes: #446375).
+  * Change Maintainer to myself.
+  * Replace ${Source-Version} by ${binary:Version}.
+  * Do not ignore errors of 'make distclean'.
+
+ -- Torsten Werner <twerner@debian.org>  Sat, 13 Oct 2007 14:46:23 +0200
+
+t1lib (5.1.0-3) unstable; urgency=low
+
+  * Apply patch from Artur R. Czechowski to fix CVE-2007-4033.
+    (Closes: #439927)
+
+ -- Torsten Werner <twerner@debian.org>  Mon, 17 Sep 2007 23:25:45 +0200
+
+t1lib (5.1.0-2) unstable; urgency=low
+
+  * Upload to unstable
+  * Bump-up Standards-Version to 3.6.2 (no changes required)
+  * Torsten Werner <twerner@debian.org> is sponsoring the package
+
+ -- Artur R. Czechowski <arturcz@hell.pl>  Sat,  6 Aug 2005 20:11:51 +0200
+
+t1lib (5.1.0-1) experimental; urgency=low
+
+  * New upstream release
+  * README.t1lib-5.0.2 replaced with README.t1lib-5.1.0
+  * README.win32 is no longer installed
+  * Removed misleading information from README.Debian
+  * Replace -V with -V 'libt1-5 (>= 5.0.2)' for dh_makeshlibs in debian/rules
+  * Remove some commented stuff from debian/rules
+  * Torsten Werner <twerner@debian.org> is sponsoring the package
+
+ -- Artur R. Czechowski <arturcz@hell.pl>  Sat,  4 Jun 2005 22:12:43 +0200
+
+t1lib (5.0.2-3) unstable; urgency=low
+
+  * Update libtool (Closes: #246753)
+  * Build-Depends on individual library instead dummy xlibs-dev
+  * Added dependencies to -dev package (Closes: #249973)
+  * Thanks to Christopher L Cheney for above patches
+  * Add -V to dh_makeshlibs to make a versioned dependencies on this library
+  * Torsten Werner <twerner@debian.org> is sponsoring the package
+
+ -- Artur R. Czechowski <arturcz@hell.pl>  Sun, 23 May 2004 01:02:02 +0200
+
+t1lib (5.0.2-2) unstable; urgency=low
+
+  * change distribution to unstable
+  * Torsten Werner <twerner@debian.org> is sponsoring the package
+
+ -- Artur R. Czechowski <arturcz@hell.pl>  Sun, 18 Apr 2004 13:07:23 +0200
+
+t1lib (5.0.2-1) experimental; urgency=low
+
+  * New upstream release (Closes: #243916)
+    - fixed some crashes (Closes: #242570, #243378)
+  * Reference to README.t1lib-5.0.2 instead -5.0.0 in some debian/ files
+  * Torsten Werner <twerner@debian.org> is sponsoring the package
+
+ -- Artur R. Czechowski <arturcz@hell.pl>  Sat, 17 Apr 2004 19:22:09 +0200
+
+t1lib (5.0.0-5) unstable; urgency=low
+
+  * debian/rules: documentation is build from binary-indep (Closes: #230386)
+  * debian/watch has been added
+  * Torsten Werner <twerner@debian.org> is sponsoring the package
+
+ -- Artur R. Czechowski <arturcz@hell.pl>  Sat, 21 Feb 2004 20:19:38 +0100
+
+t1lib (5.0.0-4) unstable; urgency=low
+
+  * Added missing files in NEWS.Debian
+
+ -- Artur R. Czechowski <arturcz@hell.pl>  Wed, 21 Jan 2004 00:27:24 +0100
+
+t1lib (5.0.0-3) unstable; urgency=low
+
+  * New release uploaded to unstable (finaly closes: #185097, #216501)
+  * Unleash it to allow to migrate to testing (Closes: #221198)
+  * libt1-dev and t1lib-dev conflict with each other,
+  * libt1-dev conflicts with t1lib1-dev to smooth upgrade from t1lib 1.3.1-6
+  * t1lib-bin provides/conflicts/replaces t1lib1-bin to smooth upgrade from
+    t1lib 1.3.1-6
+  * Some README.* files in libt1-dev
+  * Applied patch which fixes memory access bug (see #224314 for details)
+  * Torsten Werner <twerner@debian.org> is sponsoring the package
+
+ -- Artur R. Czechowski <arturcz@hell.pl>  Sun, 18 Jan 2004 03:00:05 +0100
+
+t1lib (5.0.0-2) experimental; urgency=low
+
+  * rename source package to t1lib
+  * rename binary packages:
+    + libt1-5 -> libt1-dev
+    + t1lib5-bin -> t1lib-bin
+    + libt1-5-doc -> libt1-doc
+  * rationale for all above:
+    http://lists.debian.org/debian-devel/2003/debian-devel-200311/msg01083.html
+    and rest of this thread
+  * linking libt1x with X libraries to avoid undefined symbols (see #220111)
+  * clearing independency of X11 in README.Debian
+  * removed all tracks of t1lib0 (Conflict, Replaces, etc)
+  * Torsten Werner <twerner@debian.org> is sponsoring the package
+
+ -- Artur R. Czechowski <arturcz@hell.pl>  Wed, 24 Dec 2003 01:50:37 +0100
+
+t1lib5 (5.0.0-1) experimental; urgency=low
+
+  * New upstream release (Closes: #185097, #216501)
+  * This release is binary incompatible with the previous one.
+  * t1lib-bin and t1lib-dev are virtual packages now
+  * removed weird ``dbl'' from configure - typo in upstream configure.in
+  * there is no necessity to conflict current -doc with the other ones
+  * library, devel and documentation package is libt1-5{,-dev,-doc} to be
+    consistent with Debian Policy 8.1
+  * do not anymore copy config.{sub,guess} automagically
+  * update ac-tools/config.{sub,guess} to 20031007
+  * Torsten Werner <twerner@debian.org> is sponsoring the package
+
+ -- Artur R. Czechowski <arturcz@hell.pl>  Sun,  9 Nov 2003 15:16:51 +0100
+
+t1lib (1.3.1-4) unstable; urgency=low
+
+  * New Maintainer, Adopted Package (Closes: #189694)
+  * Prepare for migration to t1lib 5.x:
+    - all packages renamed to t1lib1{,-foo}
+    - empty packages t1lib-bin and t1lib-dev depending on t1lib1-bin
+      and t1lib1-dev
+  * Packaging from scratch using debhelper, Standards-Version is 3.6.1.0 now
+  * Remove non-existent xlib6g-dev from Build-Depends
+  * Updated README.Debian
+  * Remove symlinks from /usr/doc/t1lib*
+  * Only t1lib1-bin contains /etc/t1lib directory
+  * t1lib-dev has been split into two packages: t1lib1-dev and t1lib1-doc
+  * t1lib1-bin: change manual section for type1afm from 8 to 1
+  * t1lib1-bin: create files in /etc/t1lib if don't exist (Closes: #58275)
+  * t1lib1-bin: remove symlink /usr/share/doc/t1lib-bin -> t1lib1 if exists
+  * Torsten Werner <twerner@debian.org> is sponsoring the package
+
+ -- Artur R. Czechowski <arturcz@hell.pl>  Sun,  2 Nov 2003 03:47:51 +0100
+
+t1lib (1.3.1-3) unstable; urgency=low
+
+  * Change t1lib-dev's section from "devel" to "libdevel" (thanks, Katie!)
+
+ -- Adam Conrad <adconrad@0c3.net>  Mon, 18 Aug 2003 22:42:17 -0600
+
+t1lib (1.3.1-2) unstable; urgency=low
+
+  * Set maintainer to QA, as this package was orphaned months ago (see #189694)
+  * Change "make" to "make without_doc" and remove build-dep on
+    tetex-bin (closes: #192291, #192290)
+  * Change libxaw-dev build-dep to libxaw7-dev, so we are asking for a real
+    package, rather than a virtual (closes: #170012)
+  * lib/Makefile.in changes (closes: #193757)
+    - add "-lm" to libt1.la target
+    - add "-L@top_srcdir@/lib/.libs/ -lt1" to libt1x.la target
+
+ -- Adam Conrad <adconrad@0c3.net>  Mon, 18 Aug 2003 21:50:22 -0600
+
+t1lib (1.3.1-1) unstable; urgency=low
+
+  * New upstream version.  (Closes: #127619,#127618)
+
+ -- David Huggins-Daines <dhd@debian.org>  Thu,  3 Jan 2002 21:53:29 -0500
+
+t1lib (1.2-1) unstable; urgency=low
+
+  * New upstream version.
+
+ -- David Huggins-Daines <dhd@debian.org>  Wed, 22 Aug 2001 21:16:36 -0400
+
+t1lib (1.1.1-2.2) unstable; urgency=low
+
+  * NMU
+  * debian/rules: if LD_LIBRARY_PATH is already set, append to it, so
+    builds under fakeroot will work (Closes: #104046)
+
+ -- Branden Robinson <branden@debian.org>  Fri, 10 Aug 2001 04:57:50 -0500
+
+t1lib (1.1.1-2.1) unstable; urgency=low
+
+  * NMU, with updated config.{guess,sub} for newer architectures
+
+ -- Randolph Chung <tausq@debian.org>  Sat,  7 Jul 2001 01:01:51 -0600
+
+t1lib (1.1.1-2) unstable; urgency=high
+
+  * Yow!  Major upstream weirdness.  Do *not* try to print the documentation
+    when building...  Closes: #94660
+
+ -- David Huggins-Daines <dhd@debian.org>  Fri, 20 Apr 2001 20:35:49 -0400
+
+t1lib (1.1.1-1) unstable; urgency=low
+
+  * New upstream version.  Closes: #94627 (why did I never get this bug
+    report in the first place?)
+
+ -- David Huggins-Daines <dhd@debian.org>  Fri, 20 Apr 2001 11:16:15 -0400
+
+t1lib (1.0.1-2) unstable; urgency=low
+
+  * Recompile with new XFree86 libraries and glibc.
+
+ -- David Huggins-Daines <dhd@debian.org>  Wed, 24 Jan 2001 22:33:43 -0500
+
+t1lib (1.0.1-1) unstable; urgency=low
+
+  * New upstream version.  Closes: #69689
+
+ -- David Huggins-Daines <dhd@debian.org>  Thu,  9 Nov 2000 00:29:06 -0500
+
+t1lib (1.0-2) frozen unstable; urgency=low
+
+  * Use dpkg-architecture to supply a target architecture name to
+    configure, should fix the compile problems on Alpha and ARM for good.
+    (closes:#57839)
+
+ -- David Huggins-Daines <dhd@eradicator.org>  Wed,  1 Mar 2000 21:22:49 -0500
+
+t1lib (1.0-1) unstable; urgency=low
+
+  * New upstream version.
+  * Twiddled package names to make more sense.
+  * Move back to priority optional to satisfy dependencies of xpdf and
+    php3.
+  * Moved .la files to t1lib-dev.  Added versioned Replaces: field in the
+    control file to cope with potato-to-potato upgrades (the t1lib0
+    packages in slink were not buggy in this way)
+  * t1libconfig and associated manual pages (FontDataBase.5,
+    t1libconfig.8) are now in the t1lib-bin package, for much the same
+    reason.  Unfortunately this Replaces: field cannot be versioned.
+  * The t1lib packages no longer manage the contents of /etc/t1lib/.  In
+    the near future, t1lib1 may have a debconf interface for doing so.
+    The t1lib.config and FontDataBase were never used by any programs that
+    linked with t1lib anyway, thankfully.
+
+ -- David Huggins-Daines <dhd@eradicator.org>  Sun,  2 Jan 2000 03:02:30 -0500
+
+t1lib0 (0.9.2-1) unstable; urgency=low
+
+  * New upstream version.
+  * Being more intelligent in t1libconfig to avoid postinst-lossage.
+    Fixes: #44095
+  * Updated for FHS compliance.
+
+ -- David Huggins-Daines <dhd@debian.org>  Fri,  8 Oct 1999 15:27:46 -0400
+
+t1lib0 (0.9.1-4) unstable; urgency=medium
+
+  * Updated the shlibs file since it appears that programs compiled
+    against 0.9.1 won't work with 0.9 (though the other way around does
+    work).  Fixes: #43215, #43231
+  * Removed ARCH bogosity and updated config.sub and config.guess
+    (upstream maintainer will be notified)
+
+ -- David Huggins-Daines <dhd@debian.org>  Sat, 21 Aug 1999 01:23:39 -0400
+
+t1lib0 (0.9.1-3) unstable; urgency=low
+
+  * Conditionalize that ARCH thing, or the Hurd people will kill me.
+
+ -- David Huggins-Daines <dhd@debian.org>  Sat,  3 Jul 1999 13:56:12 -0400
+
+t1lib0 (0.9.1-2) unstable; urgency=low
+
+  * Oops.  T1lib installs a dummy config file.  We remove this before
+    building the package (because we generate our own).  Also, the preinst
+    has to compensate for the past brokenness by saving it before an
+    upgrade.
+
+ -- David Huggins-Daines <dhd@debian.org>  Fri,  2 Jul 1999 16:13:46 -0400
+
+t1lib0 (0.9.1-1) unstable; urgency=low
+
+  * New upstream version.
+  * Moved back to extra, because that's the way the winds are blowing.
+  * Added ARCH variable to debian/rules to work around strange
+    architecture detection on Alpha.
+
+ -- David Huggins-Daines <dhd@debian.org>  Fri,  2 Jul 1999 14:58:32 -0400
+
+t1lib0 (0.9-1) unstable; urgency=low
+
+  * New upstream version
+
+ -- David Huggins-Daines <dhd@debian.org>  Thu, 10 Jun 1999 23:00:12 -0400
+
+t1lib0 (0.8.1-1) unstable; urgency=low
+
+  * New upstream version.  (fixes bug #31549)
+  * Upstream move to libtool has made debian/rules a lot less contorted,
+    and slimmed up the diff considerably.  Thanks!
+  * I'm now uploading m68k versions as well.
+  * Fixed "confdif" typo in t1libconfig (oops!)
+  * This release breaks binary and source compatibility.  Bumping the
+    soname seems a bit extreme, since there is only one Debian package
+    (gglyph) which depends on this, and I'm simultaneously uploading a
+    fixed version.
+
+ -- David Huggins-Daines <dhd@debian.org>  Wed, 24 Feb 1999 17:16:41 -0500
+
+t1lib0 (0.7.1-5) unstable; urgency=low
+
+  * Changed debian/rules to remove debian/files on clean. (fixes bug #26907)
+  * Changed t1libconfig to allow installation </dev/null (fixes bug #27609)
+
+ -- David Huggins-Daines <dhd@debian.org>  Fri, 16 Oct 1998 20:12:02 -0400
+
+t1lib0 (0.7.1-4) unstable; urgency=low
+
+  * Changed debian/rules not to use debhelper, to fix PowerPC and Alpha compile
+    problems and (hopefully) make the purists happy :)
+  * Upgraded priority to Optional, since it doesn't conflict with or break
+    anything, and is relatively stable.
+
+ -- David Huggins-Daines <dhd@debian.org>  Fri, 18 Sep 1998 18:36:07 -0400
+
+t1lib0 (0.7.1-3) unstable; urgency=low
+
+  * Changed "read" to "read foo" in t1libconfig to make it more sh-friendly.
+  * Minor change to debian/rules (fixes bug #25501)
+
+ -- David Huggins-Daines <dhd@debian.org>  Fri,  7 Aug 1998 13:31:28 -0400
+
+t1lib0 (0.7.1-2) unstable; urgency=low
+
+  * Patched lib/t1lib/t1finfo.c to fix segfault problems with some fonts.
+  * Fixed the URLs and info in copyright and README.Debian.
+
+ -- David Huggins-Daines <dhd@debian.org>  Tue, 21 Jul 1998 16:01:03 -0400
+
+t1lib0 (0.7.1-1) unstable; urgency=low
+
+  * Initial release.
+
+ -- David Huggins-Daines <dhd@debian.org>  Thu, 16 Jul 1998 22:07:08 -0400 
+
+
